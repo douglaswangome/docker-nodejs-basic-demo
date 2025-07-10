@@ -1,0 +1,20 @@
+# version: '3.0' # Specify the version of the compose file format
+
+services: # Define the services or containers that make up the application
+  web: 
+    build: .
+    ports:
+      - "8001:8001"
+
+  db:
+    image: "mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - db-data:/foo
+
+volumes: # Define any named volumes used by the services
+  db-data:
+
+
+# networks: # Define any custom networks used by the services

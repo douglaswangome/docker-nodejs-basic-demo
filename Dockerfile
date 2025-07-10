@@ -1,15 +1,23 @@
-FROM node:12
+# Layer 1
+FROM node:18
 
+# Layer 2
 WORKDIR /app
 
+# Layer 3
 COPY package*.json ./
 
+# Layer 4
 RUN npm install
 
+# Layer 5
 COPY . .
 
-ENV PORT=8080
+# Layer 6
+ENV PORT=8001
 
-EXPOSE 8080
+# Layer 7
+EXPOSE 8001
 
-CMD [ "npm", "start" ]
+# Layer 8
+CMD ["npm", "start"]
